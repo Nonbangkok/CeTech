@@ -24,11 +24,11 @@ export default function CreatorPage() {
                   <img
                     src="/Creator.png"
                     alt="Profile"
-                    className="w-16 h-16 object-contain"
+                    className="w-32 h-32 rounded-full"
                   />
                 </div>
-                <h2 className="text-2xl font-bold mb-2">Creator Profile</h2>
-                <p className="text-red-100">Full Stack Developer</p>
+                <h2 className="text-2xl font-bold mb-2">Nonbangkok</h2>
+                <p className="text-red-100">Kittitouch Thipmontha</p>
               </div>
 
               <div className="md:w-2/3 p-8">

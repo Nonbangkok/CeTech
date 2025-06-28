@@ -6,7 +6,7 @@ export default function HeroSection() {
     <section className="relative overflow-hidden bg-white">
       <div className="absolute inset-0 bg-gradient-to-r from-red-50 to-red-100" />
 
-      <div className="relative container mx-auto px-4 py-20 md:py-32">
+      <div className="relative container mx-auto px-4 py-32 md:py-64">
         <div className="text-center max-w-5xl mx-auto">
           {/* Institute Icon */}
           <div className="flex justify-center mb-8">

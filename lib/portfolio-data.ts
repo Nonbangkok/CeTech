@@ -56,6 +56,20 @@ export const portfolioData: Portfolio[] = [
     instagram: "https://instagram.com/arc_archay",
     facebook: "https://facebook.com/archay24",
     github: "https://github.com/arcdoesntexist",
+  },
+  {
+    id: "5",
+    name: "Natthasit Wongprang",
+    photo: "/photos/natthasit-wongprang.jpg",
+    description: "Your quote or interests",
+    portfolioUrl: "/portfolios/natthasit-wongprang.pdf",
+    programme: "CET1",
+    major: "Computer Engineer",
+    university: "Chulalongkorn University",
+    universitySeal: "/seals/cu.png",
+    instagram: "https://www.instagram.com/tisaht_/",
+    facebook: "https://www.facebook.com/focus.wongprag/",
+    github: "https://github.com/Angy-face"
   }
 ]
 

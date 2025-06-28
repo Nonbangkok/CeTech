@@ -31,7 +31,7 @@ export default function Navigation() {
               href="/portfolio"
               className="text-gray-700 hover:text-red-600 font-medium transition-colors duration-200 hover:scale-105 transform"
             >
-              Portfolio
+              Portfolios
             </Link>
 
             <Link
