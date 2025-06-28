@@ -31,16 +31,6 @@ export default function HeroSection() {
             Supported by student of computer engineering and technology programme
           </p>
 
-          {/* <div className="flex flex-wrap justify-center gap-8 text-sm text-gray-600">
-            <div className="flex items-center gap-2">
-              <Users className="w-5 h-5 text-red-600" />
-              <span>24 Students</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Award className="w-5 h-5 text-red-600" />
-              <span>Excellence in Education</span>
-            </div>
-          </div> */}
         </div>
       </div>
     </section>
