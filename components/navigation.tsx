@@ -18,7 +18,7 @@ export default function Navigation() {
 
   return (
     <nav className="bg-white/95 backdrop-blur-sm border-b border-gray-200 sticky top-0 z-50 dark:bg-gray-900/95 dark:border-gray-700 transition-colors duration-300">
-      <div className="container mx-auto px-4">
+      <div className=" px-4">
         <div className="flex items-center justify-between h-16">
           {/* Mobile menu button */}
           <button
@@ -32,7 +32,7 @@ export default function Navigation() {
           </button>
 
           {/* Desktop Navigation - Centered */}
-          <div className="hidden md:flex items-center justify-center flex-1">
+          <div className="hidden md:flex items-center justify-center flex-1 pl-20 pr-8">
             <div className="flex items-center space-x-8">
               {/* Left Navigation Items */}
               <Link
