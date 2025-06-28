@@ -44,13 +44,13 @@ export default function Navigation() {
             {/* Logo - Center */}
             <Link href="/" className="flex items-center mx-8">
               <div className="relative">
-                <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow duration-200">
+                <div className="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow duration-200 transform scale-140">
                   <Image
                     src="/institute-logo.png"
                     alt="Institute Logo"
-                    width={32}
-                    height={32}
-                    className="w-8 h-8 object-contain"
+                    width={60}
+                    height={60}
+                    className="w-14 h-14 object-contain"
                   />
                 </div>
               </div>
@@ -74,13 +74,13 @@ export default function Navigation() {
 
           {/* Mobile Logo - Center when menu closed */}
           <Link href="/" className="md:hidden flex items-center">
-            <div className="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center shadow-lg">
+            <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center shadow-lg transform scale-110">
               <Image
                 src="/institute-logo.png"
                 alt="Institute Logo"
-                width={24}
-                height={24}
-                className="w-6 h-6 object-contain"
+                width={28}
+                height={28}
+                className="w-7 h-7 object-contain"
               />
             </div>
           </Link>
