@@ -7,7 +7,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-r from-red-50 to-red-100" />
 
       <div className="relative container mx-auto px-4 py-20 md:py-32">
-        <div className="text-center max-w-4xl mx-auto">
+        <div className="text-center max-w-5xl mx-auto">
           {/* Institute Icon */}
           <div className="flex justify-center mb-8">
             <div className="p-4 bg-red-600 rounded-full shadow-lg">
@@ -16,7 +16,7 @@ export default function HeroSection() {
                 alt="Institute Logo"
                 width={112}          /* ← wider */
                 height={112}         /* ← taller */
-                className="w-28 h-28 object-cover rounded-full"  /* 24 × 4 px = 96 px */
+                className="w-28 h-28 object-cover"  /* 24 × 4 px = 96 px */
               />
             </div>
           </div>

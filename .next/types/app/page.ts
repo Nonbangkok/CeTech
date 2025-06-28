@@ -1,4 +1,4 @@
-// File: /Users/nonbangkok/Documents/VS_code/CET_Project_newgen/app/page.tsx
+// File: /Users/nonbangkok/Documents/VS_code/cetech/app/page.tsx
 import * as entry from '../../../app/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

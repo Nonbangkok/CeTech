@@ -140,20 +140,28 @@ export default function PortfolioCard({ portfolio, index }: PortfolioCardProps) 
       {/* Card Content - Flexible height */}
       <div className="p-6 flex-1 flex flex-col">
         <div className="mb-4 flex-1">
-          <h3
-            className="text-xl font-semibold text-gray-900 mb-3 transition-colors"
-            style={{
-              color:getUniversityColors(portfolio.university).primary,
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.color = getUniversityColors(portfolio.university).primary
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.color = "#111827"
-            }}
-          >
-            {portfolio.name}
-          </h3>
+          <div className="flex items-baseline space-x-1">
+            <h3
+              className="text-xl font-semibold text-gray-900 transition-colors"
+              style={{
+                color: getUniversityColors(portfolio.university).primary,
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = getUniversityColors(portfolio.university).primary;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.color = "#111827";
+              }}
+            >
+              {portfolio.name}
+            </h3>
+
+            {portfolio.programme && (
+              <span className="text-xs text-gray-500 font-medium">
+                {portfolio.programme}
+              </span>
+            )}
+          </div>
 
           {/* Description with consistent height */}
           <div className="min-h-[4.5rem]">

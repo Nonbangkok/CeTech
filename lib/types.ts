@@ -4,6 +4,7 @@ export interface Portfolio {
   photo: string
   description: string
   portfolioUrl: string
+  programme: string
   major: string
   university: string
   universitySeal?: string
