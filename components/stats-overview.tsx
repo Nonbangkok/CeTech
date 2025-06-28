@@ -48,11 +48,13 @@ export default function StatsOverview() {
   ]
 
   return (
-    <section className="py-16 bg-gradient-to-r from-gray-50 to-white">
+    <section className="py-16 bg-gradient-to-r from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 transition-colors duration-300">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Platform Impact</h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4 transition-colors duration-300">
+            Platform Impact
+          </h2>
+          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto transition-colors duration-300">
             Connecting talented students with opportunities and showcasing excellence across multiple universities
           </p>
         </div>
@@ -61,23 +63,33 @@ export default function StatsOverview() {
           {stats.map((stat, index) => (
             <div
               key={index}
-              className={`bg-white rounded-2xl p-8 shadow-lg border border-gray-100 text-center transform transition-all duration-700 hover:scale-105 hover:shadow-xl ${
+              className={`bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg border border-gray-100 dark:border-gray-700 text-center transform transition-all duration-700 hover:scale-105 hover:shadow-xl ${
                 isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
               }`}
               style={{ transitionDelay: `${index * 150}ms` }}
             >
-              <div className={`w-16 h-16 ${stat.bgColor} rounded-full flex items-center justify-center mx-auto mb-6`}>
-                <stat.icon className={`w-8 h-8 ${stat.color}`} />
+              <div
+                className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6"
+                style={{
+                  backgroundColor: "var(--theme-secondary)",
+                  opacity: 0.2,
+                }}
+              >
+                <stat.icon className="w-8 h-8" style={{ color: "var(--theme-primary)" }} />
               </div>
 
               <div className="mb-4">
-                <div className={`text-4xl font-bold ${stat.color} mb-2`}>
+                <div className="text-4xl font-bold mb-2" style={{ color: "var(--theme-primary)" }}>
                   {isVisible && <CountUpAnimation target={stat.value} duration={2000} delay={index * 150} />}
                 </div>
-                <h3 className="text-lg font-semibold text-gray-800">{stat.label}</h3>
+                <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 transition-colors duration-300">
+                  {stat.label}
+                </h3>
               </div>
 
-              <p className="text-sm text-gray-600">{stat.description}</p>
+              <p className="text-sm text-gray-600 dark:text-gray-400 transition-colors duration-300">
+                {stat.description}
+              </p>
             </div>
           ))}
         </div>

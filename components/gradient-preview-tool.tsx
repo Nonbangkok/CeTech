@@ -15,31 +15,31 @@ interface GradientPreset {
 
 const gradientPresets: GradientPreset[] = [
   {
-    name: "Stanford Red",
+    name: "Red",
     gradient: "linear-gradient(135deg, #8C1515 0%, #DC143C 100%)",
     color1: "#8C1515",
     color2: "#DC143C",
   },
   {
-    name: "UCLA Blue Gold",
+    name: "Blue Gold",
     gradient: "linear-gradient(135deg, #2774AE 0%, #FFD100 100%)",
     color1: "#2774AE",
     color2: "#FFD100",
   },
   {
-    name: "Harvard Crimson",
+    name: "Crimson",
     gradient: "linear-gradient(135deg, #A51C30 0%, #8B0000 100%)",
     color1: "#A51C30",
     color2: "#8B0000",
   },
   {
-    name: "MIT Red Gray",
+    name: "Red Gray",
     gradient: "linear-gradient(135deg, #A31F34 0%, #8A8B8C 100%)",
     color1: "#A31F34",
     color2: "#8A8B8C",
   },
   {
-    name: "Berkeley Blue Gold",
+    name: "Dark Blue Gold",
     gradient: "linear-gradient(135deg, #003262 0%, #FDB515 100%)",
     color1: "#003262",
     color2: "#FDB515",
@@ -80,7 +80,7 @@ export default function GradientPreviewTool() {
   const [color1, setColor1] = useState("#8C1515")
   const [color2, setColor2] = useState("#DC143C")
   const [angle, setAngle] = useState(135)
-  const [selectedUniversity, setSelectedUniversity] = useState("Stanford University")
+  const [selectedUniversity, setSelectedUniversity] = useState("Chulalongkorn University")
   const [copiedText, setCopiedText] = useState("")
 
   const currentGradient = `linear-gradient(${angle}deg, ${color1} 0%, ${color2} 100%)`
@@ -136,9 +136,9 @@ export default function GradientPreviewTool() {
   return (
     <div className="max-w-6xl mx-auto space-y-8">
       {/* Main Preview */}
-      <Card>
+      <Card className="bg-white dark:bg-gray-800 border-gray-100 dark:border-gray-700 transition-colors duration-300">
         <CardHeader>
-          <CardTitle className="flex items-center gap-2">
+          <CardTitle className="flex items-center gap-2 text-gray-900 dark:text-gray-100 transition-colors duration-300">
             <Palette className="w-5 h-5" />
             Gradient Preview
           </CardTitle>
@@ -148,11 +148,13 @@ export default function GradientPreviewTool() {
             {/* Controls */}
             <div className="space-y-6">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">University</label>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 transition-colors duration-300">
+                  University
+                </label>
                 <select
                   value={selectedUniversity}
                   onChange={(e) => setSelectedUniversity(e.target.value)}
-                  className="w-full p-2 border border-gray-300 rounded-md"
+                  className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors duration-300"
                 >
                   {Object.keys(universityColors).map((university) => (
                     <option key={university} value={university}>
@@ -164,38 +166,42 @@ export default function GradientPreviewTool() {
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Color 1</label>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 transition-colors duration-300">
+                    Color 1
+                  </label>
                   <div className="flex gap-2">
                     <input
                       type="color"
                       value={color1}
                       onChange={(e) => setColor1(e.target.value)}
-                      className="w-12 h-10 border border-gray-300 rounded cursor-pointer"
+                      className="w-12 h-10 border border-gray-300 dark:border-gray-600 rounded cursor-pointer"
                     />
                     <input
                       type="text"
                       value={color1}
                       onChange={(e) => setColor1(e.target.value)}
-                      className="flex-1 p-2 border border-gray-300 rounded-md font-mono text-sm"
+                      className="flex-1 p-2 border border-gray-300 dark:border-gray-600 rounded-md font-mono text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors duration-300"
                       placeholder="#8C1515"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Color 2</label>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 transition-colors duration-300">
+                    Color 2
+                  </label>
                   <div className="flex gap-2">
                     <input
                       type="color"
                       value={color2}
                       onChange={(e) => setColor2(e.target.value)}
-                      className="w-12 h-10 border border-gray-300 rounded cursor-pointer"
+                      className="w-12 h-10 border border-gray-300 dark:border-gray-600 rounded cursor-pointer"
                     />
                     <input
                       type="text"
                       value={color2}
                       onChange={(e) => setColor2(e.target.value)}
-                      className="flex-1 p-2 border border-gray-300 rounded-md font-mono text-sm"
+                      className="flex-1 p-2 border border-gray-300 dark:border-gray-600 rounded-md font-mono text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors duration-300"
                       placeholder="#DC143C"
                     />
                   </div>
@@ -203,7 +209,9 @@ export default function GradientPreviewTool() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Angle: {angle}°</label>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 transition-colors duration-300">
+                  Angle: {angle}°
+                </label>
                 <input
                   type="range"
                   min="0"
@@ -229,22 +237,28 @@ export default function GradientPreviewTool() {
                 </Button>
               </div>
 
-              {copiedText && <div className="text-sm text-green-600 font-medium">{copiedText}</div>}
+              {copiedText && (
+                <div className="text-sm text-green-600 dark:text-green-400 font-medium transition-colors duration-300">
+                  {copiedText}
+                </div>
+              )}
             </div>
 
             {/* Preview */}
             <div className="space-y-4">
               <div>
-                <h3 className="text-lg font-semibold mb-4">Live Preview</h3>
+                <h3 className="text-lg font-semibold mb-4 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+                  Live Preview
+                </h3>
 
                 {/* Large Gradient Preview */}
                 <div
-                  className="w-full h-32 rounded-lg border-2 border-gray-200 mb-4"
+                  className="w-full h-32 rounded-lg border-2 border-gray-200 dark:border-gray-600 mb-4 transition-colors duration-300"
                   style={{ background: currentGradient }}
                 />
 
                 {/* University Seal Preview */}
-                <div className="bg-gray-800 rounded-lg p-4 relative overflow-hidden">
+                <div className="bg-gray-800 dark:bg-gray-900 rounded-lg p-10 relative overflow-hidden transition-colors duration-300">
                   <div className="absolute bottom-4 left-4 flex items-center gap-3">
                     <div className="w-12 h-12 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg border border-white/20 bg-white">
                       <div
@@ -262,9 +276,13 @@ export default function GradientPreviewTool() {
                 </div>
               </div>
 
-              <div className="bg-gray-50 p-3 rounded-md">
-                <p className="text-sm font-medium text-gray-700 mb-1">CSS Output:</p>
-                <code className="text-xs text-gray-600 break-all">{currentGradient}</code>
+              <div className="bg-gray-50 dark:bg-gray-700 p-3 rounded-md transition-colors duration-300">
+                <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-1 transition-colors duration-300">
+                  CSS Output:
+                </p>
+                <code className="text-xs text-gray-600 dark:text-gray-400 break-all transition-colors duration-300">
+                  {currentGradient}
+                </code>
               </div>
             </div>
           </div>
@@ -272,9 +290,11 @@ export default function GradientPreviewTool() {
       </Card>
 
       {/* Preset Gradients */}
-      <Card>
+      <Card className="bg-white dark:bg-gray-800 border-gray-100 dark:border-gray-700 transition-colors duration-300">
         <CardHeader>
-          <CardTitle>Preset Gradients</CardTitle>
+          <CardTitle className="text-gray-900 dark:text-gray-100 transition-colors duration-300">
+            Preset Gradients
+          </CardTitle>
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
@@ -282,11 +302,13 @@ export default function GradientPreviewTool() {
               <button
                 key={index}
                 onClick={() => handlePresetClick(preset)}
-                className="group relative overflow-hidden rounded-lg border-2 border-gray-200 hover:border-gray-400 transition-all duration-200 hover:scale-105"
+                className="group relative overflow-hidden rounded-lg border-2 border-gray-200 dark:border-gray-600 hover:border-gray-400 dark:hover:border-gray-500 transition-all duration-200 hover:scale-105"
               >
                 <div className="w-full h-20" style={{ background: preset.gradient }} />
-                <div className="p-2 bg-white">
-                  <p className="text-xs font-medium text-gray-700 truncate">{preset.name}</p>
+                <div className="p-2 bg-white dark:bg-gray-700 transition-colors duration-300">
+                  <p className="text-xs font-medium text-gray-700 dark:text-gray-300 truncate transition-colors duration-300">
+                    {preset.name}
+                  </p>
                 </div>
               </button>
             ))}
@@ -295,12 +317,12 @@ export default function GradientPreviewTool() {
       </Card>
 
       {/* Instructions */}
-      <Card>
+      <Card className="bg-white dark:bg-gray-800 border-gray-100 dark:border-gray-700 transition-colors duration-300">
         <CardHeader>
-          <CardTitle>How to Use</CardTitle>
+          <CardTitle className="text-gray-900 dark:text-gray-100 transition-colors duration-300">How to Use</CardTitle>
         </CardHeader>
-        <CardContent className="prose prose-sm max-w-none">
-          <ol className="space-y-2">
+        <CardContent className="prose prose-sm max-w-none dark:prose-invert">
+          <ol className="space-y-2 text-gray-600 dark:text-gray-300 transition-colors duration-300">
             <li>
               <strong>Select colors:</strong> Use the color pickers or enter hex values manually
             </li>
@@ -317,7 +339,10 @@ export default function GradientPreviewTool() {
               <strong>Copy Config:</strong> Use "Copy Config" to get the university configuration code
             </li>
             <li>
-              <strong>Apply changes:</strong> Paste the config into <code>lib/university-colors.ts</code>
+              <strong>Apply changes:</strong> Paste the config into{" "}
+              <code className="bg-gray-100 dark:bg-gray-700 px-1 rounded transition-colors duration-300">
+                lib/university-colors.ts
+              </code>
             </li>
           </ol>
         </CardContent>

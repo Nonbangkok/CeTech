@@ -38,20 +38,21 @@ export default function PortfolioCard({ portfolio, index }: PortfolioCardProps) 
 
   return (
     <div
-      className="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-gray-200 h-full flex flex-col"
+      className="group bg-white dark:bg-gray-800 rounded-2xl shadow-sm hover:shadow-xl dark:shadow-gray-900/20 dark:hover:shadow-gray-900/40 transition-all duration-300 overflow-hidden border border-gray-100 dark:border-gray-700 hover:border-gray-200 dark:hover:border-gray-600 h-full flex flex-col"
       style={{
         animationDelay: `${index * 100}ms`,
         animation: "fadeInUp 0.6s ease-out forwards",
       }}
     >
       {/* Profile Image */}
-      <div className="relative aspect-square overflow-hidden bg-gray-100">
+      <div className="relative aspect-square overflow-hidden bg-gray-100 dark:bg-gray-700">
         <Image
           src={portfolio.photo || "/placeholder.svg"}
           alt={`${portfolio.name}'s profile`}
           fill
-          className={`object-cover transition-all duration-500 group-hover:scale-105 ${imageLoaded ? "opacity-100" : "opacity-0"
-            }`}
+          className={`object-cover transition-all duration-500 group-hover:scale-105 ${
+            imageLoaded ? "opacity-100" : "opacity-0"
+          }`}
           onLoad={() => setImageLoaded(true)}
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
         />
@@ -68,7 +69,7 @@ export default function PortfolioCard({ portfolio, index }: PortfolioCardProps) 
             >
               {!sealError && portfolio.universitySeal ? (
                 <Image
-                  src={portfolio.universitySeal}
+                  src={portfolio.universitySeal || "/placeholder.svg"}
                   alt={`${portfolio.university} seal`}
                   width={40}
                   height={40}
@@ -108,7 +109,7 @@ export default function PortfolioCard({ portfolio, index }: PortfolioCardProps) 
                 href={portfolio.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 bg-white/90 hover:bg-white rounded-full shadow-lg transition-colors"
+                className="p-2 bg-white/90 hover:bg-white dark:bg-gray-800/90 dark:hover:bg-gray-800 rounded-full shadow-lg transition-colors"
               >
                 <Instagram className="w-4 h-4 text-pink-600" />
               </a>
@@ -118,7 +119,7 @@ export default function PortfolioCard({ portfolio, index }: PortfolioCardProps) 
                 href={portfolio.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 bg-white/90 hover:bg-white rounded-full shadow-lg transition-colors"
+                className="p-2 bg-white/90 hover:bg-white dark:bg-gray-800/90 dark:hover:bg-gray-800 rounded-full shadow-lg transition-colors"
               >
                 <Facebook className="w-4 h-4 text-blue-600" />
               </a>
@@ -128,9 +129,9 @@ export default function PortfolioCard({ portfolio, index }: PortfolioCardProps) 
                 href={portfolio.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 bg-white/90 hover:bg-white rounded-full shadow-lg transition-colors"
+                className="p-2 bg-white/90 hover:bg-white dark:bg-gray-800/90 dark:hover:bg-gray-800 rounded-full shadow-lg transition-colors"
               >
-                <Github className="w-4 h-4 text-gray-700" />
+                <Github className="w-4 h-4 text-gray-700 dark:text-gray-300" />
               </a>
             )}
           </div>
@@ -142,22 +143,22 @@ export default function PortfolioCard({ portfolio, index }: PortfolioCardProps) 
         <div className="mb-4 flex-1">
           <div className="flex items-baseline space-x-1">
             <h3
-              className="text-xl font-semibold text-gray-900 transition-colors"
+              className="text-xl font-semibold text-gray-900 dark:text-gray-100 transition-colors duration-300"
               style={{
                 color: getUniversityColors(portfolio.university).primary,
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.color = getUniversityColors(portfolio.university).primary;
+                e.currentTarget.style.color = getUniversityColors(portfolio.university).primary
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.color = "#111827";
+                e.currentTarget.style.color = ""
               }}
             >
               {portfolio.name}
             </h3>
 
             {portfolio.programme && (
-              <span className="text-xs text-gray-500 font-medium">
+              <span className="text-xs text-gray-500 dark:text-gray-400 font-medium transition-colors duration-300">
                 {portfolio.programme}
               </span>
             )}
@@ -165,20 +166,22 @@ export default function PortfolioCard({ portfolio, index }: PortfolioCardProps) 
 
           {/* Description with consistent height */}
           <div className="min-h-[4.5rem]">
-            <p className="text-gray-600 text-sm leading-relaxed">{getFormattedDescription(portfolio.description)}</p>
+            <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed transition-colors duration-300">
+              {getFormattedDescription(portfolio.description)}
+            </p>
           </div>
         </div>
 
         {/* Major and University */}
         <div className="mb-4 space-y-2">
-          <div className="flex items-center text-sm text-gray-600">
+          <div className="flex items-center text-sm text-gray-600 dark:text-gray-400 transition-colors duration-300">
             <GraduationCap
               className="w-4 h-4 mr-2"
               style={{ color: getUniversityColors(portfolio.university).primary }}
             />
             <span className="font-medium">{portfolio.major}</span>
           </div>
-          <div className="flex items-center text-sm text-gray-600">
+          <div className="flex items-center text-sm text-gray-600 dark:text-gray-400 transition-colors duration-300">
             <Building
               className="w-4 h-4 mr-2"
               style={{
@@ -196,7 +199,7 @@ export default function PortfolioCard({ portfolio, index }: PortfolioCardProps) 
         <div className="flex">
           <Button
             onClick={handleViewPortfolio}
-            className="w-full text-white transition-colors"
+            className="w-full text-white transition-colors duration-300"
             size="sm"
             style={{
               backgroundColor: getUniversityColors(portfolio.university).primary,
@@ -218,12 +221,12 @@ export default function PortfolioCard({ portfolio, index }: PortfolioCardProps) 
 
         {/* Contact */}
         {portfolio.instagram && (
-          <div className="mt-4 pt-4 border-t border-gray-100">
+          <div className="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700 transition-colors duration-300">
             <a
               href={portfolio.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center text-sm text-gray-500 hover:text-pink-600 transition-colors"
+              className="flex items-center text-sm text-gray-500 dark:text-gray-400 hover:text-pink-600 dark:hover:text-pink-400 transition-colors duration-300"
             >
               <Instagram className="w-4 h-4 mr-2" />
               Follow on Instagram
