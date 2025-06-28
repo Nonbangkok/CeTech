@@ -1,7 +1,0 @@
-{
-  "/gradient-preview/page": "app/gradient-preview/page.js",
-  "/page": "app/page.js",
-  "/statistics/page": "app/statistics/page.js",
-  "/creator/page": "app/creator/page.js",
-  "/portfolio/page": "app/portfolio/page.js"
-}
