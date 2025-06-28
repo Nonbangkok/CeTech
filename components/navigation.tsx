@@ -3,14 +3,10 @@
 import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { Menu, X, Moon, Sun, Palette, Check } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { useTheme, themeColors } from "@/lib/theme-context"
+import { Menu, X } from "lucide-react"
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [showColorPicker, setShowColorPicker] = useState(false)
-  const { isDark, themeColor, toggleDarkMode, setThemeColor } = useTheme()
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
@@ -65,7 +61,7 @@ export default function Navigation() {
               <Link href="/" className="flex items-center mx-8">
                 <div className="relative">
                   <div
-                    className="w-20 h-20 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-200 transform scale-110"
+                    className="w-16 h-16 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-200 transform scale-110"
                     style={{
                       backgroundColor: "var(--theme-primary)",
                     }}
@@ -73,9 +69,9 @@ export default function Navigation() {
                     <Image
                       src="/institute-logo.png"
                       alt="Institute Logo"
-                      width={64}
-                      height={64}
-                      className="w-14 h-14 object-contain"
+                      width={40}
+                      height={40}
+                      className="w-10 h-10 object-contain"
                     />
                   </div>
                 </div>
@@ -113,7 +109,7 @@ export default function Navigation() {
           {/* Mobile Logo - Center when menu closed */}
           <Link href="/" className="md:hidden flex items-center">
             <div
-              className="w-20 h-20 rounded-full flex items-center justify-center shadow-lg transform scale-110"
+              className="w-12 h-12 rounded-full flex items-center justify-center shadow-lg transform scale-110"
               style={{
                 backgroundColor: "var(--theme-primary)",
               }}
@@ -121,68 +117,15 @@ export default function Navigation() {
               <Image
                 src="/institute-logo.png"
                 alt="Institute Logo"
-                width={32}
-                height={32}
-                className="w-14 h-14 object-contain"
+                width={28}
+                height={28}
+                className="w-7 h-7 object-contain"
               />
             </div>
           </Link>
 
           {/* Theme Controls - Right Side */}
-          <div className="flex items-center gap-2">
-            {/* Color Theme Picker */}
-            <div className="relative">
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={() => setShowColorPicker(!showColorPicker)}
-                className="w-10 h-10 p-0 border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-800 bg-white dark:bg-gray-900 transition-colors"
-              >
-                <Palette className="w-4 h-4 text-gray-600 dark:text-gray-300" />
-              </Button>
-
-              {showColorPicker && (
-                <div className="absolute top-12 right-0 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 p-4 z-50 min-w-[200px] transition-colors">
-                  <h3 className="text-sm font-medium text-gray-900 dark:text-gray-100 mb-3">Choose Theme Color</h3>
-                  <div className="grid grid-cols-4 gap-2">
-                    {themeColors.map((color) => (
-                      <button
-                        key={color.value}
-                        onClick={() => {
-                          setThemeColor(color.value)
-                          setShowColorPicker(false)
-                        }}
-                        className="relative w-8 h-8 rounded-full border-2 border-gray-200 dark:border-gray-600 hover:scale-110 transition-transform"
-                        style={{ backgroundColor: color.value }}
-                        title={color.name}
-                      >
-                        {themeColor === color.value && (
-                          <Check className="w-4 h-4 text-white absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
-                        )}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
-
-            {/* Dark Mode Toggle */}
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={toggleDarkMode}
-              className="w-10 h-10 p-0 border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-800 bg-white dark:bg-gray-900 transition-colors"
-            >
-              {isDark ? (
-                <Sun className="w-4 h-4 text-yellow-500" />
-              ) : (
-                <Moon className="w-4 h-4 text-gray-600 dark:text-gray-300" />
-              )}
-            </Button>
-
-            {/* Click outside to close color picker */}
-            {showColorPicker && <div className="fixed inset-0 z-40" onClick={() => setShowColorPicker(false)} />}
-          </div>
+          <div className="flex items-center gap-2"></div>
         </div>
 
         {/* Mobile Navigation Menu */}
@@ -243,38 +186,7 @@ export default function Navigation() {
               </Link>
 
               {/* Mobile Theme Controls */}
-              <div className="px-3 py-2 border-t border-gray-200 dark:border-gray-700 mt-2 pt-4">
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Theme</span>
-                  <div className="flex items-center gap-2">
-                    <Button variant="outline" size="sm" onClick={toggleDarkMode} className="w-8 h-8 p-0 bg-transparent">
-                      {isDark ? (
-                        <Sun className="w-3 h-3 text-yellow-500" />
-                      ) : (
-                        <Moon className="w-3 h-3 text-gray-600 dark:text-gray-300" />
-                      )}
-                    </Button>
-                  </div>
-                </div>
-                <div className="grid grid-cols-4 gap-2">
-                  {themeColors.map((color) => (
-                    <button
-                      key={color.value}
-                      onClick={() => {
-                        setThemeColor(color.value)
-                        setIsMenuOpen(false)
-                      }}
-                      className="relative w-8 h-8 rounded-full border-2 border-gray-200 dark:border-gray-600 hover:scale-110 transition-transform"
-                      style={{ backgroundColor: color.value }}
-                      title={color.name}
-                    >
-                      {themeColor === color.value && (
-                        <Check className="w-4 h-4 text-white absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
-                      )}
-                    </button>
-                  ))}
-                </div>
-              </div>
+              <div className="px-3 py-2 border-t border-gray-200 dark:border-gray-700 mt-2 pt-4"></div>
             </div>
           </div>
         )}
