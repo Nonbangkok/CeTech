@@ -65,7 +65,7 @@ export default function Navigation() {
               <Link href="/" className="flex items-center mx-8">
                 <div className="relative">
                   <div
-                    className="w-16 h-16 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-200 transform scale-110"
+                    className="w-20 h-20 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-200 transform scale-110"
                     style={{
                       backgroundColor: "var(--theme-primary)",
                     }}
@@ -73,9 +73,9 @@ export default function Navigation() {
                     <Image
                       src="/institute-logo.png"
                       alt="Institute Logo"
-                      width={40}
-                      height={40}
-                      className="w-10 h-10 object-contain"
+                      width={64}
+                      height={64}
+                      className="w-14 h-14 object-contain"
                     />
                   </div>
                 </div>
@@ -113,7 +113,7 @@ export default function Navigation() {
           {/* Mobile Logo - Center when menu closed */}
           <Link href="/" className="md:hidden flex items-center">
             <div
-              className="w-12 h-12 rounded-full flex items-center justify-center shadow-lg transform scale-110"
+              className="w-20 h-20 rounded-full flex items-center justify-center shadow-lg transform scale-110"
               style={{
                 backgroundColor: "var(--theme-primary)",
               }}
@@ -121,9 +121,9 @@ export default function Navigation() {
               <Image
                 src="/institute-logo.png"
                 alt="Institute Logo"
-                width={28}
-                height={28}
-                className="w-7 h-7 object-contain"
+                width={32}
+                height={32}
+                className="w-14 h-14 object-contain"
               />
             </div>
           </Link>

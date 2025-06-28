@@ -21,7 +21,7 @@ export default function CreatorPage() {
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-4xl mx-auto">
             {/* Header */}
-            <div className="text-center mb-16">
+            <div className="text-center mb-4">
               <h1
                 className="text-4xl md:text-5xl font-bold text-red-800 dark:text-gray-100 mb-4 transition-colors duration-300"
                 style={{ color: "var(--theme-primary)" }}
@@ -128,7 +128,6 @@ export default function CreatorPage() {
                   className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4"
                   style={{
                     backgroundColor: "var(--theme-secondary)",
-                    opacity: 0.2,
                   }}
                 >
                   <Heart className="w-6 h-6" style={{ color: "var(--theme-primary)" }} />
@@ -147,7 +146,6 @@ export default function CreatorPage() {
                   className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4"
                   style={{
                     backgroundColor: "var(--theme-secondary)",
-                    opacity: 0.2,
                   }}
                 >
                   <Code className="w-6 h-6" style={{ color: "var(--theme-primary)" }} />
@@ -165,7 +163,6 @@ export default function CreatorPage() {
                   className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4"
                   style={{
                     backgroundColor: "var(--theme-secondary)",
-                    opacity: 0.2,
                   }}
                 >
                   <Coffee className="w-6 h-6" style={{ color: "var(--theme-primary)" }} />
