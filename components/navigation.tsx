@@ -61,11 +61,11 @@ export default function Navigation() {
                 Statistics
               </Link>
 
-              {/* Logo - Center */}
-              <Link href="/" className="flex items-center mx-8">
+              {/* Logo - Center with expansion effect */}
+              <Link href="/" className="flex items-center mx-8 group z-10">
                 <div className="relative">
                   <div
-                    className="w-20 h-20 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-200 transform scale-110"
+                    className="w-20 h-20 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 transform scale-110 group-hover:scale-125 group-hover:rotate-3"
                     style={{
                       backgroundColor: "var(--theme-primary)",
                     }}
@@ -75,9 +75,10 @@ export default function Navigation() {
                       alt="Institute Logo"
                       width={64}
                       height={64}
-                      className="w-14 h-14 object-contain"
+                      className="w-14 h-14 object-contain transition-transform duration-300 group-hover:scale-110"
                     />
                   </div>
+
                 </div>
               </Link>
 
@@ -110,21 +111,23 @@ export default function Navigation() {
             </div>
           </div>
 
-          {/* Mobile Logo - Center when menu closed */}
-          <Link href="/" className="md:hidden flex items-center">
-            <div
-              className="w-20 h-20 rounded-full flex items-center justify-center shadow-lg transform scale-110"
-              style={{
-                backgroundColor: "var(--theme-primary)",
-              }}
-            >
-              <Image
-                src="/institute-logo.png"
-                alt="Institute Logo"
-                width={32}
-                height={32}
-                className="w-14 h-14 object-contain"
-              />
+          {/* Mobile Logo - Center when menu closed with expansion effect */}
+          <Link href="/" className="md:hidden flex items-center group">
+            <div className="relative">
+              <div
+                className="w-20 h-20 rounded-full flex items-center justify-center shadow-lg transform scale-110 group-hover:scale-125 group-hover:rotate-3 transition-all duration-300"
+                style={{
+                  backgroundColor: "var(--theme-primary)",
+                }}
+              >
+                <Image
+                  src="/institute-logo.png"
+                  alt="Institute Logo"
+                  width={32}
+                  height={32}
+                  className="w-14 h-14 object-contain transition-transform duration-300 group-hover:scale-110"
+                />
+              </div>
             </div>
           </Link>
 
