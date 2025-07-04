@@ -7,14 +7,6 @@ import { Menu, X, Moon, Sun, Palette, Check } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useTheme, themeColors } from "@/lib/theme-context"
 
-const hexToRgb = (hexVar: string): string => {
-  const hex = getComputedStyle(document.documentElement).getPropertyValue(hexVar).trim();
-  const bigint = parseInt(hex.replace('#', ''), 16);
-  const r = (bigint >> 16) & 255;
-  const g = (bigint >> 8) & 255;
-  const b = bigint & 255;
-  return `${r}, ${g}, ${b}`;
-};
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -57,8 +49,8 @@ export default function Navigation() {
                 id="nav-slider"
                 className="absolute top-1/2 transform -translate-y-1/2 h-10 transition-all duration-300 ease-out opacity-0 pointer-events-none border"
                 style={{
-                  background: `rgba(${hexToRgb('--theme-primary')}, 0.2)`,
-                  borderColor: `var(--theme-secondary)`,
+                  background: `var(--theme-secondary)`,
+                  borderColor: `var(--theme-primary)`,
                   boxShadow: `0 0 5px var(--theme-secondary)`,
                   borderRadius: '0.5rem',
                 }}

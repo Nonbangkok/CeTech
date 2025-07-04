@@ -20,7 +20,7 @@ const themeColors = [
   { name: "Orange", value: "#EA580C", secondary: "#FED7AA" },
   { name: "Pink", value: "#DB2777", secondary: "#F9A8D4" },
   { name: "Teal", value: "#0D9488", secondary: "#5EEAD4" },
-  { name: "Emerald", value: "#43FFAF", secondary: "#A0FFD0" },
+  { name: "Emerald", value: "#3BDB97", secondary: "#A0FFD0" },
 ]
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
