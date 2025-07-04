@@ -19,8 +19,8 @@ const themeColors = [
   { name: "Purple", value: "#9333EA", secondary: "#C4B5FD" },
   { name: "Orange", value: "#EA580C", secondary: "#FED7AA" },
   { name: "Pink", value: "#DB2777", secondary: "#F9A8D4" },
-  { name: "Indigo", value: "#4F46E5", secondary: "#A5B4FC" },
   { name: "Teal", value: "#0D9488", secondary: "#5EEAD4" },
+  { name: "Emerald", value: "#43FFAF", secondary: "#A0FFD0" },
 ]
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {

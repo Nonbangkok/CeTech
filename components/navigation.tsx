@@ -7,6 +7,15 @@ import { Menu, X, Moon, Sun, Palette, Check } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useTheme, themeColors } from "@/lib/theme-context"
 
+const hexToRgb = (hexVar: string): string => {
+  const hex = getComputedStyle(document.documentElement).getPropertyValue(hexVar).trim();
+  const bigint = parseInt(hex.replace('#', ''), 16);
+  const r = (bigint >> 16) & 255;
+  const g = (bigint >> 8) & 255;
+  const b = bigint & 255;
+  return `${r}, ${g}, ${b}`;
+};
+
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [showColorPicker, setShowColorPicker] = useState(false)
@@ -32,14 +41,46 @@ export default function Navigation() {
           </button>
 
           {/* Desktop Navigation - Centered */}
-          <div className="hidden md:flex items-center justify-center flex-1 pl-20 pr-8">
-            <div className="flex items-center space-x-8">
+          <div
+            className="hidden md:flex items-center justify-center flex-1 pl-20 pr-8"
+            onMouseLeave={() => {
+              const slider = document.getElementById("nav-slider")
+              if (slider) {
+                slider.style.opacity = "0"
+                slider.style.transform = "translateY(-50%) scale(1)"
+              }
+            }}
+          >
+            <div className="flex items-center space-x-8 relative">
+              {/* Sliding Background */}
+              <div
+                id="nav-slider"
+                className="absolute top-1/2 transform -translate-y-1/2 h-10 transition-all duration-300 ease-out opacity-0 pointer-events-none border"
+                style={{
+                  background: `rgba(${hexToRgb('--theme-primary')}, 0.2)`,
+                  borderColor: `var(--theme-secondary)`,
+                  boxShadow: `0 0 5px var(--theme-secondary)`,
+                  borderRadius: '0.5rem',
+                }}
+              />
+
               {/* Left Navigation Items */}
               <Link
                 href="/portfolio"
-                className="text-gray-700 hover:text-red-600 font-medium transition-colors duration-200 hover:scale-105 transform dark:text-gray-300 dark:hover:text-red-400"
+                className="relative z-10 px-4 py-2 text-gray-700 hover:text-red-600 font-medium transition-colors duration-200 hover:scale-105 transform dark:text-gray-300 dark:hover:text-red-400"
                 onMouseEnter={(e) => {
                   e.currentTarget.style.color = "var(--theme-primary)"
+                  const slider = document.getElementById("nav-slider")
+                  if (slider) {
+                    const rect = e.currentTarget.getBoundingClientRect()
+                    const parentRect = e.currentTarget.parentElement?.getBoundingClientRect()
+                    if (parentRect) {
+                      slider.style.width = `${rect.width}px`
+                      slider.style.left = `${rect.left - parentRect.left}px`
+                      slider.style.opacity = "1"
+                      slider.style.transform = "translateY(-50%) scale(1.02)"
+                    }
+                  }
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.color = ""
@@ -50,9 +91,20 @@ export default function Navigation() {
 
               <Link
                 href="/statistics"
-                className="text-gray-700 hover:text-red-600 font-medium transition-colors duration-200 hover:scale-105 transform dark:text-gray-300 dark:hover:text-red-400"
+                className="relative z-10 px-4 py-2 text-gray-700 hover:text-red-600 font-medium transition-colors duration-200 hover:scale-105 transform dark:text-gray-300 dark:hover:text-red-400"
                 onMouseEnter={(e) => {
                   e.currentTarget.style.color = "var(--theme-primary)"
+                  const slider = document.getElementById("nav-slider")
+                  if (slider) {
+                    const rect = e.currentTarget.getBoundingClientRect()
+                    const parentRect = e.currentTarget.parentElement?.getBoundingClientRect()
+                    if (parentRect) {
+                      slider.style.width = `${rect.width}px`
+                      slider.style.left = `${rect.left - parentRect.left}px`
+                      slider.style.opacity = "1"
+                      slider.style.transform = "translateY(-50%) scale(1.02)"
+                    }
+                  }
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.color = ""
@@ -67,7 +119,7 @@ export default function Navigation() {
                   <div
                     className="w-20 h-20 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 transform scale-110 group-hover:scale-125 group-hover:rotate-3"
                     style={{
-                      backgroundColor: "var(--theme-primary)",
+                      background: `linear-gradient(135deg, var(--theme-primary) 0%, var(--theme-dark) 100%)`,
                     }}
                   >
                     <Image
@@ -78,16 +130,26 @@ export default function Navigation() {
                       className="w-14 h-14 object-contain transition-transform duration-300 group-hover:scale-110"
                     />
                   </div>
-
                 </div>
               </Link>
 
               {/* Right Navigation Items */}
               <Link
                 href="/creator"
-                className="text-gray-700 hover:text-red-600 font-medium transition-colors duration-200 hover:scale-105 transform dark:text-gray-300 dark:hover:text-red-400"
+                className="relative z-10 px-4 py-2 text-gray-700 hover:text-red-600 font-medium transition-colors duration-200 hover:scale-105 transform dark:text-gray-300 dark:hover:text-red-400"
                 onMouseEnter={(e) => {
                   e.currentTarget.style.color = "var(--theme-primary)"
+                  const slider = document.getElementById("nav-slider")
+                  if (slider) {
+                    const rect = e.currentTarget.getBoundingClientRect()
+                    const parentRect = e.currentTarget.parentElement?.getBoundingClientRect()
+                    if (parentRect) {
+                      slider.style.width = `${rect.width}px`
+                      slider.style.left = `${rect.left - parentRect.left}px`
+                      slider.style.opacity = "1"
+                      slider.style.transform = "translateY(-50%) scale(1.02)"
+                    }
+                  }
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.color = ""
@@ -98,9 +160,20 @@ export default function Navigation() {
 
               <Link
                 href="/gradient-preview"
-                className="text-gray-700 hover:text-red-600 font-medium transition-colors duration-200 hover:scale-105 transform dark:text-gray-300 dark:hover:text-red-400"
+                className="relative z-10 px-4 py-2 text-gray-700 hover:text-red-600 font-medium transition-colors duration-200 hover:scale-105 transform dark:text-gray-300 dark:hover:text-red-400"
                 onMouseEnter={(e) => {
                   e.currentTarget.style.color = "var(--theme-primary)"
+                  const slider = document.getElementById("nav-slider")
+                  if (slider) {
+                    const rect = e.currentTarget.getBoundingClientRect()
+                    const parentRect = e.currentTarget.parentElement?.getBoundingClientRect()
+                    if (parentRect) {
+                      slider.style.width = `${rect.width}px`
+                      slider.style.left = `${rect.left - parentRect.left}px`
+                      slider.style.opacity = "1"
+                      slider.style.transform = "translateY(-50%) scale(1.02)"
+                    }
+                  }
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.color = ""
@@ -117,7 +190,7 @@ export default function Navigation() {
               <div
                 className="w-20 h-20 rounded-full flex items-center justify-center shadow-lg transform scale-110 group-hover:scale-125 group-hover:rotate-3 transition-all duration-300"
                 style={{
-                  backgroundColor: "var(--theme-primary)",
+                  background: `linear-gradient(135deg, var(--theme-primary) 0%, var(--theme-dark) 100%)`,
                 }}
               >
                 <Image
