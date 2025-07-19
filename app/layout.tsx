@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description:
     "Explore the exceptional portfolios and creative work of our graduating class. Discover talented designers, developers, and creative professionals.",
   keywords: "portfolio, student work, design, development, creative, showcase",
-  authors: [{ name: "Class of 2024" }],
+  authors: [{ name: "Cetech" }],
   openGraph: {
     title: "Cetech",
     description: "Explore the exceptional portfolios and creative work of our graduating class.",
