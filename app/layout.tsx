@@ -7,13 +7,13 @@ import { ThemeProvider } from "@/lib/theme-context"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Class Portfolio Showcase | Class of 2024",
+  title: "Cetech",
   description:
     "Explore the exceptional portfolios and creative work of our graduating class. Discover talented designers, developers, and creative professionals.",
   keywords: "portfolio, student work, design, development, creative, showcase",
   authors: [{ name: "Class of 2024" }],
   openGraph: {
-    title: "Class Portfolio Showcase | Class of 2024",
+    title: "Cetech",
     description: "Explore the exceptional portfolios and creative work of our graduating class.",
     type: "website",
   },
