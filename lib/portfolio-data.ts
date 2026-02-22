@@ -61,7 +61,7 @@ export const portfolioData: Portfolio[] = [
     id: "5",
     name: "Natthasit Wongprang",
     photo: "/photos/natthasit-wongprang.jpg",
-    description: "Your quote or interests",
+    description: "Is artificial intelligence less than our intelligence?",
     portfolioUrl: "/portfolios/natthasit-wongprang.pdf",
     programme: "CET1",
     major: "Computer Engineer",
@@ -70,6 +70,34 @@ export const portfolioData: Portfolio[] = [
     instagram: "https://www.instagram.com/tisaht_/",
     facebook: "https://www.facebook.com/focus.wongprag/",
     github: "https://github.com/Angy-face"
+  },
+  {
+    id: "6",
+    name: "Chanawat Paenkhong",
+    photo: "/photos/chanawat-paenkhong.jpg",
+    description: "Simplicity is the ultimate sophistication",
+    portfolioUrl: "/portfolios/chanawat-paenkhong.pdf",
+    programme: "CET1",
+    major: "IT KMITL",
+    university: "King Mongkut's Ladkrabang",
+    universitySeal: "/seals/kmitl.png",
+    instagram: "https://www.instagram.com/kuncancan",
+    facebook: "https://www.facebook.com/jhon.goodboy.7",
+    github: ""
+  },
+  {
+    id: "7",
+    name: "Warakorn Hemjinda",
+    photo: "/photos/warakorn-hemjinda.jpg",
+    description: "ค่อยคิด",
+    portfolioUrl: "/portfolios/warakorn-hemjinda.pdf",
+    programme: "CET2",
+    major: "Computer Engineer",
+    university: "Chulalongkorn University",
+    universitySeal: "/seals/cu.png",
+    instagram: "https://instagram.com/42.45.53.54",
+    facebook: "https://www.facebook.com/w.ra.kr.hem.cinda",
+    github: "https://github.com/BestWarakorn",
   }
 ]
 
@@ -79,6 +107,7 @@ export const portfolioData: Portfolio[] = [
 //   photo: "PASS",
 //   description: "Your quote or interests",
 //   portfolioUrl: "PASS",
+//   programme: "CET1",
 //   major: "Computer Engineer",
 //   university: "Chulalongkorn University",
 //   universitySeal: "PASS",
