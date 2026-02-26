@@ -42,7 +42,7 @@ export default function HeroSection() {
           </h1>
 
           <p className="text-xl text-gray-700 dark:text-gray-300 mb-12 max-w-2xl mx-auto transition-colors duration-300">
-            Supported by student of computer engineering and technology programmes
+            Supported by student of computer engineering and technology programme
           </p>
         </div>
       </div>
